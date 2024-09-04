@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dcsd
+  labels:
+    app: dcsd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dcsd
+  template:
+    metadata:
+      labels:
+        app: dcsd
+    spec:
+      containers:
+        - name: dcsd-django
+          image: 172.23.8.1:9500/dcsd:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              name: dcsd
