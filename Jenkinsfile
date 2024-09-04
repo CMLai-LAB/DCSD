@@ -12,7 +12,7 @@ pipeline {
             steps {
                 dir('deployment') {
                     sh 'microk8s kubectl apply -f deployment.yaml -n dcsd'
-                    sh 'microk8s kubectl apply -f dcsd-Svc.yaml -n dcsd'
+                    sh 'microk8s kubectl apply -f dcsd-svc.yaml -n dcsd'
                     sh 'microk8s kubectl rollout restart deployment dcsd -n dcsd'
                 }
             }
