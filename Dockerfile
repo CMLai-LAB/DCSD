@@ -7,6 +7,6 @@ COPY . .
 RUN apk --update add --no-cache build-base cmake
 RUN pip install -r requirements.txt
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "waitress-serve", "--port=5000", "app:app" ]
 
 EXPOSE 5000
